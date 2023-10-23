@@ -15,12 +15,12 @@ public class Main {
         int seguir;
         Vehiculo vehiculoAIntroducir;
 
-        while((seguir = preguntarSeguir()) == 0)
+        while((seguir = preguntarSeguir()) != 0)
         {
             vehiculoAIntroducir = crearVehiculo();
             if(vehiculoAIntroducir != null)
             {
-                if(vehiculoAIntroducir.getTipo()=="moto")
+                if(vehiculoAIntroducir.getTipo().compareTo("moto") == 0)
                 {
                     motos.add(vehiculoAIntroducir);
                 }
@@ -46,6 +46,8 @@ public class Main {
     }
 
     public static Vehiculo crearVehiculo() {
+        
+        scanner.nextLine();
         System.out.println("Indica el tipo de vechiculo");
         String tipo = scanner.nextLine().toLowerCase();
         System.out.println("Indica la Marca");
@@ -53,7 +55,7 @@ public class Main {
         System.out.println("Indica su precio");
         float precio = scanner.nextFloat();
 
-        if (tipo == "moto" || tipo == "coche") {
+        if (tipo.compareTo("moto") == 0 || tipo.compareTo("coche") == 0) {
             return new Vehiculo(tipo, marca, precio);
         }
 
@@ -72,7 +74,7 @@ public class Main {
         int tamano = coches.size();
         for (int i = 0; i < tamano; i++) {
             for (int j = i; j < tamano; j++) {
-                if (coches.get(i).getMarca() > coches.get(j).getMarca()) {
+                if (coches.get(i).getMarca().compareTo(coches.get(j).getMarca())> 0) {
                     intercambiarVehiculos(coches, i, j);
                 }
             }
