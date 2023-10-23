@@ -15,9 +15,12 @@ public class Main {
         int seguir;
         Vehiculo vehiculoAIntroducir;
 
+        //Si devuelve 0 no quiere continuar, en cualquier otro numero continua.
         while((seguir = preguntarSeguir()) != 0)
         {
+            //Si el no es ni coche ni moto devuelve null
             vehiculoAIntroducir = crearVehiculo();
+
             if(vehiculoAIntroducir != null)
             {
                 if(vehiculoAIntroducir.getTipo().compareTo("moto") == 0)
@@ -41,12 +44,13 @@ public class Main {
     }
 
     public static int preguntarSeguir() {
-        System.out.println("Desea continuar? introduce 0 para no continuar, cualquier otra cosa en caso contrario");
+        System.out.println("Desea continuar? introduce 0 para no continuar, cualquier otro numero en caso contrario");
         return scanner.nextInt();
     }
 
     public static Vehiculo crearVehiculo() {
         
+        //limpia buffer
         scanner.nextLine();
         System.out.println("Indica el tipo de vechiculo");
         String tipo = scanner.nextLine().toLowerCase();
@@ -60,8 +64,6 @@ public class Main {
         }
 
         return null;
-
-
     }
 
     public static void intercambiarVehiculos(List<Vehiculo> lista, int posicion_a, int posicion_b) {
