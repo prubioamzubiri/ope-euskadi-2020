@@ -50,8 +50,9 @@ public class Main {
 
     public static Vehiculo crearVehiculo() {
         
-        //limpia buffer
-        scanner.nextLine();
+        
+        scanner.nextLine(); //limpia buffer
+        
         System.out.println("Indica el tipo de vechiculo");
         String tipo = scanner.nextLine().toLowerCase();
         System.out.println("Indica la Marca");
